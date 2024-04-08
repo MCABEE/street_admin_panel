@@ -1,16 +1,26 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { sidebarContext } from "@/context/sidebar.context";
 import { authContext } from "@/context/auth.context";
 import useAuth from "@/hooks/useAuth";
 import { Button } from "./ui/button";
 import { ChevronFirst, ChevronLast } from "lucide-react";
+import { menus } from "@/lib/constants";
 import logo from "../assets/logo.png";
 
-export default function Sidebar({ children }: { children: React.ReactNode }) {
+export default function Sidebar() {
   const [expanded, setExpanded] = useState(true);
+  const [activeMenu, setActiveMenu] = useState(1);
 
   const { logout } = useAuth();
   const { setAuth } = useContext(authContext);
+
+  const navigate = useNavigate();
+
+  const handleSelect = (menu: { id: number; href: string }) => {
+    setActiveMenu(menu.id);
+    navigate(menu.href);
+  };
 
   return (
     <aside className="h-screen">
@@ -30,8 +40,21 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
           </button>
         </div>
 
-        <sidebarContext.Provider value={{ expanded, setExpanded }}>
-          <ul className="flex-1 px-3">{children}</ul>
+        <sidebarContext.Provider
+          value={{ expanded, setExpanded, activeMenu, setActiveMenu }}
+        >
+          <ul className="flex-1 px-3">
+            {menus.map((menu) => (
+              <SidebarItem
+                key={menu.id}
+                icon={<menu.icon />}
+                text={menu.name}
+                active={activeMenu === menu.id}
+                alert={false}
+                handleSelect={() => handleSelect(menu)}
+              />
+            ))}
+          </ul>
         </sidebarContext.Provider>
 
         <div className="border-t flex p-3">
@@ -56,19 +79,22 @@ export function SidebarItem({
   text,
   active,
   alert = false,
+  handleSelect,
 }: {
   icon: React.ReactNode;
   text: string;
   active: boolean;
   alert?: boolean;
+  handleSelect?: () => void;
 }) {
   const { expanded } = useContext(sidebarContext);
   return (
     <li
+      onClick={handleSelect}
       className={`relative flex items-center py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors group ${
         active
-          ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
-          : "hover:bg-indigo-50 text-gray-600"
+          ? "bg-gradient-to-tr from-blue-200 to-blue-100 text-blue-800"
+          : "hover:bg-blue-50 text-gray-600"
       }`}
     >
       {icon}
@@ -81,7 +107,7 @@ export function SidebarItem({
       </span>
       {alert && (
         <div
-          className={`absolute right-2 w-2 h-2 rounded bg-indigo-400 ${
+          className={`absolute right-2 w-2 h-2 rounded bg-blue-400 ${
             expanded ? "" : "top-2"
           }`}
         ></div>
@@ -89,7 +115,7 @@ export function SidebarItem({
 
       {!expanded && (
         <div
-          className={`absolute left-full rounded-md px-2 py-1 ml-6 bg-indigo-100 text-indigo-800 text-sm invisible opacity-20 -translate-x-3 transition-all group-hover:visible group-hover:opacity-100 group-hover:translate-x-0`}
+          className={`absolute left-full rounded-md px-2 py-1 ml-6 bg-blue-100 text-blue-800 text-sm invisible opacity-20 -translate-x-3 transition-all group-hover:visible group-hover:opacity-100 group-hover:translate-x-0`}
         >
           {text}
         </div>

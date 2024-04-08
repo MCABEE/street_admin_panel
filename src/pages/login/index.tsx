@@ -34,7 +34,7 @@ export default function Login() {
   return (
     <>
       <section className="max-w-screen-xl mx-auto sm:px-5 px-3 grid min-h-screen">
-        <div className="bg-white my-10 py-10 rounded-[30px] grid md:grid-cols-2 gap-5">
+        <div className="bg-white my-12 py-10 rounded-[30px] grid md:grid-cols-2 gap-5">
           <div className="hidden md:flex flex-col justify-center items-center">
             <img src={logo} className="h-24 w-auto" alt="mcabee" />
             <img

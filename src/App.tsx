@@ -32,6 +32,18 @@ function App() {
               path="/users"
               element={<h1 className="text-3xl">Users</h1>}
             />
+            <Route
+              path="/business"
+              element={<h1 className="text-3xl">Businesses</h1>}
+            />
+            <Route
+              path="/data-manager"
+              element={<h1 className="text-3xl">Data Manager</h1>}
+            />
+            <Route
+              path="/settings"
+              element={<h1 className="text-3xl">Settings</h1>}
+            />
           </Route>
           <Route
             path="*"
