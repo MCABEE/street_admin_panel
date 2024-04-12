@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 
 // === Assets === //
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 import businessCollab from "@/assets/business_collaboration.png";
 
 export default function Login() {
@@ -36,7 +36,7 @@ export default function Login() {
       <section className="max-w-screen-xl mx-auto sm:px-5 px-3 grid min-h-screen">
         <div className="bg-white my-12 py-10 rounded-[30px] grid md:grid-cols-2 gap-5">
           <div className="hidden md:flex flex-col justify-center items-center">
-            <img src={logo} className="h-24 w-auto" alt="mcabee" />
+            <img src={logo} className="h-20 w-auto" alt="mcabee" />
             <img
               src={businessCollab}
               className="h-64 w-auto"
@@ -55,6 +55,7 @@ export default function Login() {
           </div>
           <div className="flex justify-center items-center">
             <div>
+            <img src={logo} className="h-12 w-auto md:hidden mb-2" alt="mcabee" />
               <h1>
                 Master <br />
                 Control Panel
@@ -66,7 +67,7 @@ export default function Login() {
               >
                 <Input placeholder="Username" type="text" className="w-80" />
                 <Input placeholder="Password" type="password" />
-                <Button className="bg-primary font-semibold w-28 rounded-3xl">
+                <Button variant={"primary"} className="font-semibold w-28 rounded-3xl">
                   Go
                 </Button>
               </form>

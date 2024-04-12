@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // footer component
 const Footer = () => (
   <footer className="bg-white">
-    <div className="max-w-screen-xl mx-auto sm:px-5 px-3 py-6 flex justify-between items-center">
+    <div className="max-w-screen-xl mx-auto sm:px-5 px-3 py-6 flex flex-col md:flex-row gap-4 justify-between items-center">
       <div className="flex items-center cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"

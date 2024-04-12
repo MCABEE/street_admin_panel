@@ -8,7 +8,7 @@ function Layout() {
 
   const location = useLocation();
   return auth ? (
-    <div className="flex overflow-auto">
+    <div className="flex">
       <Sidebar />
       <main className="p-5 w-full h-screen overflow-y-scroll">
         <Outlet />
