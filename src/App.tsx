@@ -14,13 +14,6 @@ function App() {
 
   useEffect(() => setAuth(isAuthenticated), [isAuthenticated]);
 
-  // console the count of the number of times the page is rendered
-  // const countRender = useRef(0);
-  // useEffect(() => {
-  //   countRender.current += 1;
-  //   console.log(`Render Count: ${countRender.current}`);
-  // }, []);
-
   return (
     <BrowserRouter>
       <authContext.Provider value={{ auth, setAuth }}>
@@ -35,10 +28,7 @@ function App() {
             <Route path="/agents" element={<h1>Agents</h1>} />
             <Route path="/data-manager" element={<Outlet />}>
               <Route index element={<DataManager />} />
-              <Route
-                path="business-category"
-                element={<BusinessCategory />}
-              />
+              <Route path="business-category/:page" element={<BusinessCategory />} />
               <Route path="business-type" element={<h1>Business Type</h1>} />
               <Route path="location" element={<h1>Geo Location</h1>} />
               <Route

@@ -22,13 +22,13 @@ export default function DataManager() {
           </CardHeader>
           <CardFooter className="flex justify-end gap-4">
             <Link
-              to={"business-category/?page=view"}
+              to={"business-category/view"}
               className="text-blue-600 font-semibold"
             >
               View
             </Link>
             <Link
-              to={"business-category/?page=add"}
+              to={"business-category/add"}
               className="text-blue-600 font-semibold"
             >
               Add
@@ -43,13 +43,13 @@ export default function DataManager() {
           </CardHeader>
           <CardFooter className="flex justify-end gap-4">
             <Link
-              to={"business-type/?page=view"}
+              to={"business-type/view"}
               className="text-blue-600 font-semibold"
             >
               View
             </Link>
             <Link
-              to={"business-type/?page=add"}
+              to={"business-type/add"}
               className="text-blue-600 font-semibold"
             >
               Add
@@ -63,10 +63,10 @@ export default function DataManager() {
             <CardDescription>1000+ Locations</CardDescription>
           </CardHeader>
           <CardFooter className="flex justify-end gap-4">
-            <Link to={"location/?page=view"} className="text-blue-600 font-semibold">
+            <Link to={"location/view"} className="text-blue-600 font-semibold">
               View
             </Link>
-            <Link to={"location/?page=add"} className="text-blue-600 font-semibold">
+            <Link to={"location/add"} className="text-blue-600 font-semibold">
               Add
             </Link>
           </CardFooter>
@@ -78,10 +78,10 @@ export default function DataManager() {
             <CardDescription>100+ Products</CardDescription>
           </CardHeader>
           <CardFooter className="flex justify-end gap-4">
-            <Link to={"product-catalogue/?page=view"} className="text-blue-600 font-semibold">
+            <Link to={"product-catalogue/view"} className="text-blue-600 font-semibold">
               View
             </Link>
-            <Link to={"product-catalogue/?page=add"} className="text-blue-600 font-semibold">
+            <Link to={"product-catalogue/add"} className="text-blue-600 font-semibold">
               Add
             </Link>
           </CardFooter>
